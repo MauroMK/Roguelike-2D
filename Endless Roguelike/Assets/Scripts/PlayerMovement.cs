@@ -9,7 +9,9 @@ public class PlayerMovement : MonoBehaviour
     private float speed = 3f;
 
     private Rigidbody2D rb;
+
     private PlayerInput playerMovementInput;
+    private string moveAction = "Move";
 
     private float horizontal;
     private float vertical;
@@ -27,8 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMove()
     {
-        horizontal = playerMovementInput.actions["Move"].ReadValue<Vector2>().x;
-        vertical = playerMovementInput.actions["Move"].ReadValue<Vector2>().y;
+        horizontal = playerMovementInput.actions[moveAction].ReadValue<Vector2>().x;
+        vertical = playerMovementInput.actions[moveAction].ReadValue<Vector2>().y;
 
         rb.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
