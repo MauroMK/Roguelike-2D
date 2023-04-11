@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Fighter : MonoBehaviour
 {
     // Public Fields
@@ -15,6 +16,12 @@ public class Fighter : MonoBehaviour
 
     // Push
     protected Vector3 pushDirection;
+    private Rigidbody2D rigidBody;
+
+    protected virtual void Start()
+    {
+        rigidBody = GetComponent<Rigidbody2D>();
+    }
 
     // All fighters can ReceiveDamage / Die
     protected virtual void ReceiveDamage(Damage dmg)
@@ -23,7 +30,7 @@ public class Fighter : MonoBehaviour
         {
             lastImmune = Time.time;         // gives the fighter immunity
             hitpoint -= dmg.damageAmount;   // takes damage
-            pushDirection = (transform.position - dmg.origin).normalized * dmg.knockback;      // gives a knockback
+            ReceiveKnockback(dmg);
         }
 
         if (hitpoint <= 0f)
@@ -31,6 +38,19 @@ public class Fighter : MonoBehaviour
             hitpoint = 0;
             Die();
         }
+    }
+
+    protected virtual void ReceiveKnockback(Damage dmg)
+    {
+        Vector2 direction = (transform.position - dmg.origin).normalized;
+        rigidBody.AddForce(direction * dmg.knockback, ForceMode2D.Impulse);
+        StartCoroutine(RecoveryTime());
+    }
+
+    private IEnumerator RecoveryTime()
+    {
+        yield return new WaitForSeconds(pushRecoverySpeed);
+        rigidBody.velocity = Vector3.zero;
     }
 
     protected virtual void Die()

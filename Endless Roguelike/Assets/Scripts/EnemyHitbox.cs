@@ -9,7 +9,7 @@ public class EnemyHitbox : Collidable
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Fighter" && other.name == "Player")
+        if (other.CompareTag(fighterTag) && other.name == "Player")
         {
             // Create a new damage object, then we'll send it to the fighter we've hit
             Damage dmg = new Damage
