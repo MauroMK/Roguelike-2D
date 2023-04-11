@@ -6,6 +6,11 @@ public class Player : Fighter
 {
     private bool isAlive = true;
 
+    protected override void Start()
+    {
+        base.Start();
+    }
+
     protected override void ReceiveDamage(Damage dmg)
     {
         if (!isAlive)
@@ -17,8 +22,13 @@ public class Player : Fighter
         //TODO Refresh the hitpoint bar
     }
 
+    protected override void ReceiveKnockback(Damage dmg)
+    {
+        base.ReceiveKnockback(dmg);
+    }
+
     protected override void Die()
     {
-        base.Die();
+        Destroy(gameObject);
     }
 }
