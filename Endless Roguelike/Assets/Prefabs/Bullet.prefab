@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2291476840093379058}
   - component: {fileID: 2291476840093379059}
   - component: {fileID: 2291476840093379060}
-  - component: {fileID: 2291476840093379061}
+  - component: {fileID: -4663325965562356830}
   - component: {fileID: -2186709265801883625}
   m_Layer: 0
   m_Name: Bullet
@@ -108,8 +108,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &2291476840093379061
-CircleCollider2D:
+--- !u!61 &-4663325965562356830
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -121,9 +121,19 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.016625285, y: 0.031172425}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 0.7755585, y: 0.7630895}
+  m_EdgeRadius: 0
 --- !u!114 &-2186709265801883625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,3 +146,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec659283396c1ab4f82fa2e4dacb8023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePoint: 010000000200000003000000040000000500000006000000
+  knockback:
+  - 1.5
+  - 1.7
+  - 1.9
+  - 2.1
+  - 2.3
+  - 2.5
+  weaponLevel: 0

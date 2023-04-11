@@ -29,7 +29,6 @@ public class PlayerShooting : MonoBehaviour
 
         if (fire)
         {
-            Debug.Log("Fire");
             Shoot();
         }
 

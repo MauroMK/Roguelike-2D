@@ -23,7 +23,7 @@ public class Fighter : MonoBehaviour
         {
             lastImmune = Time.time;         // gives the fighter immunity
             hitpoint -= dmg.damageAmount;   // takes damage
-            pushDirection = (transform.position - dmg.origin).normalized * Time.deltaTime;      // gives a knockback
+            pushDirection = (transform.position - dmg.origin).normalized * dmg.knockback;      // gives a knockback
         }
 
         if (hitpoint <= 0f)
