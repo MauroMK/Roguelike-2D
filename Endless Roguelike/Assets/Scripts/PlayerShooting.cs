@@ -7,6 +7,7 @@ public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform barrel;
+    [SerializeField] private SpriteRenderer slimeSprite;
 
     private PlayerInput playerShootInput;
     private string fireAction = "Fire";
@@ -17,12 +18,18 @@ public class PlayerShooting : MonoBehaviour
         playerShootInput = GetComponent<PlayerInput>();
     }
 
+    void Update() 
+    {
+        HandleAiming();
+    }
+
     void OnFire()
     {
         fire = playerShootInput.actions[fireAction].WasPressedThisFrame();
 
         if (fire)
         {
+            Debug.Log("Fire");
             Shoot();
         }
 
@@ -31,5 +38,22 @@ public class PlayerShooting : MonoBehaviour
     void Shoot()
     {
         Instantiate(bulletPrefab, barrel.position, barrel.rotation);
+    }
+
+    void HandleAiming()
+    {
+        // Rotation
+        var direction = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.eulerAngles = new Vector3 (0, 0, angle);
+
+        if (angle > 90 || angle < -90)
+        {
+            slimeSprite.flipX = false;
+        }
+        else
+        {
+            slimeSprite.flipX = true;
+        }
     }
 }

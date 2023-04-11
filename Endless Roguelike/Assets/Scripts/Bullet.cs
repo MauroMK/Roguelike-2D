@@ -14,6 +14,6 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        bulletRb.velocity = transform.right * bulletSpeed;
+        transform.Translate(Vector2.right * bulletSpeed * Time.deltaTime);
     }
 }
