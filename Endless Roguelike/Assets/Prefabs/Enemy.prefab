@@ -165,3 +165,4 @@ MonoBehaviour:
   maxHitpoint: 5
   pushRecoverySpeed: 0.2
   speed: 1.5
+  xpValue: 10

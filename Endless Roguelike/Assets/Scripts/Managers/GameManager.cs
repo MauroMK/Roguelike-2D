@@ -16,4 +16,24 @@ public class GameManager : MonoBehaviour
 
     public Player player;
 
+    public int level = 0;
+    public int experience = 0;
+    public int experienceToNextLevel = 50;
+
+    public void AddExperience (int amount)
+    {
+        experience += amount;
+        if (experience >= experienceToNextLevel)
+        {
+            //* Experience enough to level up´
+            level++;
+            experience -= experienceToNextLevel;
+        }
+    }
+
+    public int GetLevelNumber()
+    {
+        return level;
+    }
+
 }
