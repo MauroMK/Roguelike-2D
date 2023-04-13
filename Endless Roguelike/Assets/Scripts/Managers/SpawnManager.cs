@@ -31,9 +31,11 @@ public class SpawnManager : MonoBehaviour
     {
         // Random float to spawn enemies
         float spawnRate = Random.Range(minSpawnRate, maxSpawnRate);
+
+        // Random position to spawn the marker and the enemy
         Vector2 spawnPoint = RandomPointWithinLocations();
 
-        //Wait delay seconds when game starts to spawn a enemy
+        //Wait delay seconds when game starts to spawn an enemy
         yield return new WaitForSeconds(interval);
           
         // Show spawn location for one second
@@ -41,8 +43,11 @@ public class SpawnManager : MonoBehaviour
         yield return new WaitForSeconds(destroyMarkerDelay);
         Destroy(marker);
                   
+        // Creating the random enemy list
+        int randEnemy = Random.Range(0, enemyPrefabs.Length);
+
         // Spawn enemy
-        GameObject newEnemy = (GameObject) Instantiate(enemyPrefabs[0], spawnPoint, Quaternion.identity);
+        GameObject newEnemy = (GameObject) Instantiate(enemyPrefabs[randEnemy], spawnPoint, Quaternion.identity);
 
         // After the first spawn in the start (with the startDelay, this one uses the random spawnRate to spawn enemies randomly)
         StartCoroutine(SpawnEnemy(spawnRate));
