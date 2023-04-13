@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy : Fighter
 {
     [SerializeField] private float speed;
+    
+    public int xpValue = 1;
 
     private Transform playerTransform;
 
@@ -14,7 +16,7 @@ public class Enemy : Fighter
         playerTransform = GameManager.instance.player.transform;
     }
 
-    void FixedUpdate() 
+    protected virtual void FixedUpdate() 
     {
         // Follow the player
         transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
@@ -32,6 +34,7 @@ public class Enemy : Fighter
 
     protected override void Die()
     {
+        GameManager.instance.AddExperience(xpValue);
         Destroy(gameObject);
     }
 

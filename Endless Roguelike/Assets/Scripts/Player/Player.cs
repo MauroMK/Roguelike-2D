@@ -6,6 +6,8 @@ public class Player : Fighter
 {
     private bool isAlive = true;
 
+    public int playerLevel = 0;
+
     protected override void Start()
     {
         base.Start();

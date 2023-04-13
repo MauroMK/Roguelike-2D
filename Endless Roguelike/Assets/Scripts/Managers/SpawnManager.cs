@@ -13,29 +13,43 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private Transform borderTop;
     [SerializeField] private Transform borderBottom;
 
-    [SerializeField] private float spawnRate = 3.5f; //TODO randomize
+    private float minSpawnRate = 1f; //TODO randomize
+    private float maxSpawnRate = 4f;
+
+    private float startDelay = 3f;
+
+    private float destroyMarkerDelay = 1f;
 
     public void Start()
     {
-        StartCoroutine(SpawnEnemy(spawnRate));
+        // First start with the delay
+        StartCoroutine(SpawnEnemy(startDelay));
     }
 
     //TODO spawn stronger enemies while the game keeps going
-    IEnumerator SpawnEnemy(float interval) 
+    public IEnumerator SpawnEnemy(float interval) 
     {
+        // Random float to spawn enemies
+        float spawnRate = Random.Range(minSpawnRate, maxSpawnRate);
+
+        // Random position to spawn the marker and the enemy
         Vector2 spawnPoint = RandomPointWithinLocations();
 
-        //Wait delay seconds when game starts to spawn a enemy
+        //Wait delay seconds when game starts to spawn an enemy
         yield return new WaitForSeconds(interval);
           
         // Show spawn location for one second
         Object marker = Instantiate(spawnMarker, spawnPoint, Quaternion.identity);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(destroyMarkerDelay);
         Destroy(marker);
                   
-        // Spawn enemy
-        GameObject newEnemy = (GameObject) Instantiate(enemyPrefabs[0], spawnPoint, Quaternion.identity);
+        // Creating the random enemy list
+        int randEnemy = Random.Range(0, enemyPrefabs.Length);
 
+        // Spawn enemy
+        GameObject newEnemy = (GameObject) Instantiate(enemyPrefabs[randEnemy], spawnPoint, Quaternion.identity);
+
+        // After the first spawn in the start (with the startDelay, this one uses the random spawnRate to spawn enemies randomly)
         StartCoroutine(SpawnEnemy(spawnRate));
     }
 
