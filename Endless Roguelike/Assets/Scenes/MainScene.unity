@@ -794,6 +794,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2291476840093379062, guid: 693068b114566b545a94801750be115e, type: 3}
   barrel: {fileID: 1391213519}
   slimeSprite: {fileID: 305695983}
+  fireRate: 2
 --- !u!114 &938479563
 MonoBehaviour:
   m_ObjectHideFlags: 0
