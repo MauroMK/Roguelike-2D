@@ -886,7 +886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 922912520}
-  level: 0
+  level: 1
   experience: 0
   experienceToNextLevel: 50
 --- !u!4 &1229421378
@@ -1032,6 +1032,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 6446087385131754387, guid: d8b7112963923a94da280adf5d5f2cc9, type: 3}
   - {fileID: 6446087385131754387, guid: 5d4fbc859cb30a94eac5c9ded7311e8a, type: 3}
+  - {fileID: 8342879185680533649, guid: 5eaaa92c5b9d4a549b08e7500f637f24, type: 3}
   borderLeft: {fileID: 1933872570}
   borderRight: {fileID: 2088554594}
   borderTop: {fileID: 24050664}
