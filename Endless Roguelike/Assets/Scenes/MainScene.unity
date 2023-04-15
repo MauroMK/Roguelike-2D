@@ -957,7 +957,7 @@ MonoBehaviour:
   hitpoint: 25
   maxHitpoint: 25
   pushRecoverySpeed: 0.2
-  playerLevel: 0
+  healthBar: {fileID: 929463099}
 --- !u!1 &929463095
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +969,7 @@ GameObject:
   - component: {fileID: 929463096}
   - component: {fileID: 929463098}
   - component: {fileID: 929463097}
+  - component: {fileID: 929463099}
   m_Layer: 5
   m_Name: HP_Bar_Background
   m_TagString: Untagged
@@ -1037,6 +1038,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929463095}
   m_CullTransparentMesh: 1
+--- !u!114 &929463099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929463095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6095ce89734b68408d9ca2b564b263a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1257394869}
+  healthText: {fileID: 1770340137}
 --- !u!1 &938479555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,10 +1191,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 2041473537, guid: 0576f1be9ed64654fadcc0553d5e46d7, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -1408,10 +1423,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 144551974, guid: 0576f1be9ed64654fadcc0553d5e46d7, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
