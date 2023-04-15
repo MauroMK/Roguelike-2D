@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class ExperienceBar : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Image experienceBar;
+    public TMP_Text levelText;
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateExperienceBar(int experience, int experienceToNextLevel, int level)
     {
-        
+        float imageFillAmount = (float)experience / (float)experienceToNextLevel;
+        experienceBar.fillAmount = imageFillAmount;
+        levelText.text = string.Format("{0}/ {1}", experience, experienceToNextLevel);
     }
 }

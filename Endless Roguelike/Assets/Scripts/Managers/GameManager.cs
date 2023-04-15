@@ -15,10 +15,16 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public Player player;
+    public ExperienceBar experienceBar;
 
     public int level = 1;
     public int experience = 0;
     public int experienceToNextLevel = 50;
+
+    void Start()
+    {
+        experienceBar.UpdateExperienceBar(experience, experienceToNextLevel, level);
+    }
 
     public void AddExperience (int amount)
     {
@@ -29,6 +35,8 @@ public class GameManager : MonoBehaviour
             //* Experience enough to level up´
             OnLevelUp();
         }
+
+        experienceBar.UpdateExperienceBar(experience, experienceToNextLevel, level);
     }
 
     void OnLevelUp()
