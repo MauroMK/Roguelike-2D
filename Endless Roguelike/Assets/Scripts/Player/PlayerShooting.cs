@@ -11,9 +11,13 @@ public class PlayerShooting : MonoBehaviour
 
     private PlayerInput playerShootInput;
     private string fireAction = "Fire";
-    private bool fire;
 
-    void Start()
+    private float shootInterval = 0f;
+    
+    [Range(0, 5)]
+    [SerializeField] private float fireRate = 2f;
+
+    void Awake()
     {
         playerShootInput = GetComponent<PlayerInput>();
     }
@@ -21,22 +25,23 @@ public class PlayerShooting : MonoBehaviour
     void Update() 
     {
         HandleAiming();
+        HandleFiring();
     }
 
-    void OnFire()
+    void HandleFiring()
     {
-        fire = playerShootInput.actions[fireAction].WasPressedThisFrame();
+        var fire = playerShootInput.actions[fireAction];
 
-        if (fire)
+        if (fire.ReadValue<float>() > 0f && Time.time > shootInterval)
         {
             Shoot();
         }
-
     }
 
-    void Shoot()
+    private void Shoot()
     {
         Instantiate(bulletPrefab, barrel.position, barrel.rotation);
+        shootInterval = Time.time + fireRate;
     }
 
     void HandleAiming()

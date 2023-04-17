@@ -6,7 +6,7 @@ using UnityEngine;
 public class Fighter : MonoBehaviour
 {
     // Public Fields
-    public int hitpoint = 25;
+    public int hitpoint;
     public int maxHitpoint = 25;
     public float pushRecoverySpeed = 0.2f;
 
@@ -21,6 +21,7 @@ public class Fighter : MonoBehaviour
     protected virtual void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        hitpoint = maxHitpoint;
     }
 
     // All fighters can ReceiveDamage / Die

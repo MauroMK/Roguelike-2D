@@ -5,12 +5,14 @@ using UnityEngine;
 public class Player : Fighter
 {
     private bool isAlive = true;
+    public HealthBar healthBar;
 
-    public int playerLevel = 0;
+    // public int playerLevel = 0;
 
     protected override void Start()
     {
         base.Start();
+        healthBar.UpdateHealthBar(hitpoint, maxHitpoint);
     }
 
     protected override void ReceiveDamage(Damage dmg)
@@ -21,6 +23,7 @@ public class Player : Fighter
         }
 
         base.ReceiveDamage(dmg);
+        healthBar.UpdateHealthBar(hitpoint, maxHitpoint);
         //TODO Refresh the hitpoint bar
     }
 

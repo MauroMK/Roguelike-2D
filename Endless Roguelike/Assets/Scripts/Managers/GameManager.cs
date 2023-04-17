@@ -15,25 +15,43 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public Player player;
+    public ExperienceBar experienceBar;
 
-    public int level = 0;
+    public int level = 1;
     public int experience = 0;
     public int experienceToNextLevel = 50;
+
+    void Start()
+    {
+        experienceBar.UpdateExperienceBar(experience, experienceToNextLevel, level);
+    }
 
     public void AddExperience (int amount)
     {
         experience += amount;
+
         if (experience >= experienceToNextLevel)
         {
             //* Experience enough to level up´
-            level++;
-            experience -= experienceToNextLevel;
+            OnLevelUp();
         }
+
+        experienceBar.UpdateExperienceBar(experience, experienceToNextLevel, level);
     }
 
-    public int GetLevelNumber()
+    void OnLevelUp()
     {
-        return level;
+        level++;
+        experience -= experienceToNextLevel;
+        //TODO Show 3 upgrades on the screen
+    }
+
+    void ShowUpgradesOnScreen()
+    {
+        // Pop up 3 cards with the upgrades
+        // certain upgrades modify the Bullet.cs
+        // others modify hp or speed of the player.cs
+        
     }
 
 }
