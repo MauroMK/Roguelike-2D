@@ -1272,7 +1272,7 @@ MonoBehaviour:
   experienceBar: {fileID: 1407570327}
   level: 1
   experience: 0
-  experienceToNextLevel: 50
+  experienceToNextLevel: 30
 --- !u!4 &1229421378
 Transform:
   m_ObjectHideFlags: 0
