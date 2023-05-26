@@ -13,7 +13,7 @@ public class Bullet : Collidable
 
     // Physics
     private Rigidbody2D bulletRb;
-    private float bulletSpeed = 5f;
+    [SerializeField] private float bulletSpeed;
 
     void Start()
     {
