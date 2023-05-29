@@ -17,8 +17,6 @@ public class GameManager : MonoBehaviour
     public Player player;
     public ExperienceBar experienceBar;
 
-    private CardUpgradeSystem cardUpgradeSystem;
-
     public int level = 1;
     public int experience = 0;
     public int experienceToNextLevel = 50;
@@ -26,7 +24,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        cardUpgradeSystem = FindObjectOfType<CardUpgradeSystem>();
         experienceBar.UpdateExperienceBar(experience, experienceToNextLevel, level);
     }
 
@@ -48,15 +45,8 @@ public class GameManager : MonoBehaviour
         level++;
         experience -= experienceToNextLevel;
         experienceToNextLevel += increaseXP;
-        //TODO Show 3 upgrades on the screen
-    }
 
-    void ShowUpgradesOnScreen()
-    {
-        // Pop up 3 cards with the upgrades
-        // certain upgrades modify the Bullet.cs
-        // others modify hp or speed of the player.cs
-        
+        //* Show 3 upgrades on the screen
     }
 
 }

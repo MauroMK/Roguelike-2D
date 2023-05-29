@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : Collidable
 {
     // Damage structure
-    public int damagePoint;
+    public float damagePoint;
     public float knockback;
     public float bulletSpeed;
 

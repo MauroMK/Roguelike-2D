@@ -146,4 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001e09cafc07c2b4d981f29fef130aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpValue: 5
+  xpValue: 25

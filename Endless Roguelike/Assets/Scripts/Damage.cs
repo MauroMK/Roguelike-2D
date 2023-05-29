@@ -2,7 +2,7 @@ using UnityEngine;
 
 public struct Damage
 {
-    public int  damageAmount;
+    public float  damageAmount;
     public Vector3 origin;
     public float knockback;
 }
