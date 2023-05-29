@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public Player player;
     public ExperienceBar experienceBar;
 
+    private CardUpgradeSystem cardUpgradeSystem;
+
     public int level = 1;
     public int experience = 0;
     public int experienceToNextLevel = 50;
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        cardUpgradeSystem = FindObjectOfType<CardUpgradeSystem>();
         experienceBar.UpdateExperienceBar(experience, experienceToNextLevel, level);
     }
 
