@@ -5,15 +5,12 @@ using UnityEngine;
 public class Bullet : Collidable
 {
     // Damage structure
-    public int[] damagePoint = {1, 2, 3, 4, 5, 6};
-    public float[] knockback = {1.5f, 1.7f, 1.9f, 2.1f, 2.3f, 2.5f};
-
-    // Upgrade
-    public int weaponLevel = 0;
+    public float damagePoint;
+    public float knockback;
+    public float bulletSpeed;
 
     // Physics
     private Rigidbody2D bulletRb;
-    private float bulletSpeed = 5f;
 
     void Start()
     {
@@ -39,9 +36,9 @@ public class Bullet : Collidable
             // Create a new damage object, then send it to the fighter that have been hit
             Damage dmg = new Damage
             {
-                damageAmount = damagePoint[weaponLevel],
+                damageAmount = damagePoint,
                 origin = transform.position,
-                knockback = knockback[weaponLevel]
+                knockback = knockback
             };
 
             other.SendMessage("ReceiveDamage", dmg);

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerMovement : MonoBehaviour
 {
-    private float speed = 3f;
+    public float speed;
 
     private Rigidbody2D rb;
 

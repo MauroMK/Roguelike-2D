@@ -14,8 +14,7 @@ public class PlayerShooting : MonoBehaviour
 
     private float shootInterval = 0f;
     
-    [Range(0, 5)]
-    [SerializeField] private float fireRate = 2f;
+    public float fireRate = 2f;
 
     void Awake()
     {
@@ -35,6 +34,7 @@ public class PlayerShooting : MonoBehaviour
         if (fire.ReadValue<float>() > 0f && Time.time > shootInterval)
         {
             Shoot();
+            CameraShaker.Invoke(); //Shakes the camera
         }
     }
 

@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public int level = 1;
     public int experience = 0;
     public int experienceToNextLevel = 50;
+    private int increaseXP = 20;
 
     void Start()
     {
@@ -43,15 +44,9 @@ public class GameManager : MonoBehaviour
     {
         level++;
         experience -= experienceToNextLevel;
-        //TODO Show 3 upgrades on the screen
-    }
+        experienceToNextLevel += increaseXP;
 
-    void ShowUpgradesOnScreen()
-    {
-        // Pop up 3 cards with the upgrades
-        // certain upgrades modify the Bullet.cs
-        // others modify hp or speed of the player.cs
-        
+        //* Show 3 upgrades on the screen
     }
 
 }

@@ -6,7 +6,7 @@ public class Enemy : Fighter
 {
     [SerializeField] private float speed;
     
-    public int xpValue = 1;
+    [SerializeField] private GameObject xpDropPrefab;
 
     private Transform playerTransform;
 
@@ -34,9 +34,13 @@ public class Enemy : Fighter
 
     protected override void Die()
     {
-        GameManager.instance.AddExperience(xpValue);
+        DropXp();
         Destroy(gameObject);
     }
 
+    private void DropXp()
+    {
+        Instantiate(xpDropPrefab, transform.position, transform.rotation);
+    }
     
 }

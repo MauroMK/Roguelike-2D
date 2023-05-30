@@ -146,12 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec659283396c1ab4f82fa2e4dacb8023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePoint: 010000000200000003000000040000000500000006000000
-  knockback:
-  - 1.5
-  - 1.7
-  - 1.9
-  - 2.1
-  - 2.3
-  - 2.5
-  weaponLevel: 0
+  damagePoint: 1
+  knockback: 1
+  bulletSpeed: 10
