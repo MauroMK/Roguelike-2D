@@ -34,7 +34,7 @@ public class PlayerShooting : MonoBehaviour
         if (fire.ReadValue<float>() > 0f && Time.time > shootInterval)
         {
             Shoot();
-            FindObjectOfType<AudioManager>().PlaySound("PlayerShoot");
+            AudioManager.instance.PlaySound("PlayerShoot");
             CameraShaker.Invoke(); //Shakes the camera
         }
     }

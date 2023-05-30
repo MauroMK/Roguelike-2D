@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemy : Fighter
 {
     [SerializeField] private float speed;
-    
     [SerializeField] private GameObject xpDropPrefab;
 
     private Transform playerTransform;
@@ -34,6 +33,7 @@ public class Enemy : Fighter
 
     protected override void Die()
     {
+        AudioManager.instance.PlaySound("EnemyDeath");
         DropXp();
         Destroy(gameObject);
     }

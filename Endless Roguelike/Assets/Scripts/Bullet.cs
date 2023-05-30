@@ -12,9 +12,13 @@ public class Bullet : Collidable
     // Physics
     private Rigidbody2D bulletRb;
 
+    // Reference
+    private EnemySoundManager enemySoundManager;
+
     void Start()
     {
         bulletRb = GetComponent<Rigidbody2D>();
+        enemySoundManager = FindObjectOfType<EnemySoundManager>();
     }
 
     protected override void Update() 
@@ -43,11 +47,13 @@ public class Bullet : Collidable
 
             other.SendMessage("ReceiveDamage", dmg);
 
+            enemySoundManager.PlayRandomImpactSound();
             Destroy(this.gameObject);
         }
         
         if (other.gameObject.CompareTag(wallTag))
         {
+            enemySoundManager.PlayRandomImpactSound();
             Destroy(this.gameObject);
         }
     }
