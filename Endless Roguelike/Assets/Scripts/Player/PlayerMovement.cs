@@ -34,4 +34,11 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
+
+    public void ApplyKnockback(Vector2 knockbackVector)
+    {
+        // Aplica o knockback alterando a posição do player
+        Vector2 newPosition = rb.position + knockbackVector;
+        rb.MovePosition(newPosition);
+    }
 }
